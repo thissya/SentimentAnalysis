@@ -30,7 +30,7 @@ const SentimentForm = () => {
     return (
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700">
             <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
-                <h1 className="text-4xl font-bold text-gray-900 mb-6 text-center">Sentiment Analysis</h1>
+                <h1 className="text-4xl font-bold caret-transparent text-gray-900 mb-6 text-center">Sentiment Analysis</h1>
                 <form onSubmit={handleSubmit} className="flex flex-col">
                     <input
                         type="text"
@@ -41,14 +41,14 @@ const SentimentForm = () => {
                     />
                     <button
                         type="submit"
-                        className={`w-full py-3 rounded-lg text-white font-semibold ${loading ? 'bg-gray-400' : 'bg-gray-600 hover:bg-gray-700'} transition duration-300`}
+                        className={`w-full py-3 rounded-lg text-white caret-transparent font-semibold ${loading ? 'bg-gray-400' : 'bg-gray-600 hover:bg-gray-700'} transition duration-300`}
                         disabled={loading}
                     >
                         {loading ? 'Analyzing...' : 'Analyze Sentiment'}
                     </button>
                 </form>
                 {sentiment && (
-                    <div className="mt-6 text-2xl font-bold text-center text-gray-900">
+                    <div className="mt-6 text-2xl font-bold caret-transparent text-center text-gray-900">
                         Sentiment: <span className={`font-bold ${sentiment === 'Positive' ? 'text-green-500' : sentiment === 'Neutral' ? 'text-yellow-500' : 'text-red-500'}`}>{sentiment}</span>
                     </div>
                 )}
