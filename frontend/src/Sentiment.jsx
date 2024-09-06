@@ -10,7 +10,7 @@ const SentimentForm = () => {
         setLoading(true);
 
         try {
-            const response = await fetch('https://7e65-35-227-169-165.ngrok-free.app/predict', {
+            const response = await fetch('http://localhost:5000/predict', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -19,7 +19,7 @@ const SentimentForm = () => {
             });
 
             const data = await response.json();
-            setSentiment(data.sentiment);
+            setSentiment(data.prediction);
         } catch (error) {
             console.error('Error:', error);
         } finally {
@@ -49,7 +49,7 @@ const SentimentForm = () => {
                 </form>
                 {sentiment && (
                     <div className="mt-6 text-2xl font-bold caret-transparent text-center text-gray-900">
-                        Sentiment: <span className={`font-bold ${sentiment === 'Positive' ? 'text-green-500' : sentiment === 'Neutral' ? 'text-yellow-500' : 'text-red-500'}`}>{sentiment}</span>
+                        Sentiment: <span className={`font-bold ${sentiment === 'positive' ? 'text-green-500' : sentiment === 'neutral' ? 'text-yellow-500' : 'text-red-500'}`}>{sentiment}</span>
                     </div>
                 )}
             </div>
